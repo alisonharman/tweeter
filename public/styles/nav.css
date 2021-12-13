@@ -1,0 +1,33 @@
+
+
+nav {
+  font-family: 'Bungee', cursive;
+  font-size: 40px;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFF;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*
+#new-tweet {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+}
+*/
+
+.left-item {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+  align-items: center;
+}
+
+.fa-solid {
+  color: red;
+}
