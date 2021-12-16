@@ -1,0 +1,14 @@
+header {
+  height: 480px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(231, 156, 63);
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+}
+
+h2 {
+  margin-block-start: 0em;
+}
