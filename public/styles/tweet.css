@@ -1,0 +1,29 @@
+.tweet {
+  width: 100%;
+  border: 5px solid;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+
+.header {
+  background-color: #f4f1ec;
+  height: 50px;
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tweet-text {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border-bottom: 2px solid black;
+  height: 50px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
