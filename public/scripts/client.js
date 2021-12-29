@@ -9,4 +9,18 @@ $(document).ready(function() {
     $(this).toggleClass('highlightBox')
   });
 
+  $(".fa-flag").hover( function() {
+    $(this).toggleClass('iconColor')
+  });
+
+  $(".fa-heart").hover( function() {
+    //console.log($(this))
+    $(this).toggleClass('iconColor')
+  });
+
+  $(".fa-retweet").hover( function() {
+    //console.log($(this))
+    $(this).toggleClass('iconColor')
+  });
+
 });
