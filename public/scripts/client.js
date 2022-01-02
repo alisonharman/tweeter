@@ -73,6 +73,20 @@ $(document).ready(function () {
   
   renderTweets(data);
 
+  const form = $('#new-tweet');
+  form.on('submit', function(event) {
+    event.preventDefault();
+    console.log(event);
+    const serializedData = $(this).serialize();
+    console.log(serializedData);
+
+    $.post('/tweets/', serializedData)
+      .then((resp) => {
+        console.log(resp);
+      })
+
+  })
+
   $("article").hover(function () {
     $(this).toggleClass('highlightBox')
   });
