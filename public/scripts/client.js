@@ -71,7 +71,7 @@ $(document).ready(function () {
     }
   };
   
-  renderTweets(data);
+  //renderTweets(data);
 
   const form = $('#new-tweet');
   form.on('submit', function(event) {
@@ -86,6 +86,20 @@ $(document).ready(function () {
       })
 
   })
+
+  const loadTweets = function() {
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      url: "/tweets",
+      success: tweets => {
+        renderTweets(tweets)
+      },
+      error: error => console.log(error)
+    })
+  }
+
+  loadTweets();
 
   $("article").hover(function () {
     $(this).toggleClass('highlightBox')
