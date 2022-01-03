@@ -7,6 +7,14 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
 
+    // prevent XSS on the inputted tweet text
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+    const safeHTML = `${escape(`${tweet.content.text}`)}`;
+
     const markup = `<article class=tweet> 
       <header class="header">
           <div>
@@ -16,7 +24,7 @@ $(document).ready(function () {
           <output name="username"> ${tweet.user.handle} </output>
         </header>
         <p class="tweet-text">
-        ${tweet.content.text}
+          ${safeHTML}
         </p>
         <footer class="footer">
           <span> ${timeago.format(tweet.created_at)} </span> 
