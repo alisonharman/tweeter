@@ -76,24 +76,24 @@ $(document).ready(function () {
   const form = $('#new-tweet');
   form.on('submit', function(event) {
     event.preventDefault();
-    //console.log($(this));
+    const input = $('#tweet-text').first().val();
+    
     const serializedData = $(this).serialize();
-    console.log(serializedData);
 
-    // allotment is 140 characters, plus accounting for 'text=' which adds 5
-    if (serializedData.length >= 146) {
+    // allotment is 140 characters
+    if (input.length > 140) {
       alert('Tweet is too long!')
       return;
     }
 
-    if (serializedData === "text=") {
+    if (input === "") {
       alert('No tweet submitted!')
       return;
     }
 
     $.post('/tweets/', serializedData)
       .then((resp) => {
-        console.log(resp);
+        console.log("Hey there!");
       })
 
   })
