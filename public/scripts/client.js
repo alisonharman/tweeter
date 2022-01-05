@@ -5,6 +5,10 @@
  */
 $(document).ready(function () {
 
+  console.log($(document.body));
+
+  //$(() => { alert('Hello!'); });
+
   const createTweetElement = function (tweet) {
 
     // prevent XSS on the inputted tweet text
@@ -51,8 +55,6 @@ $(document).ready(function () {
       $('#tweets-container').prepend($tweet);
     }
   };
-  
-  //renderTweets(data);
 
   const form = $('#new-tweet');
   form.on('submit', function(event) {
@@ -61,9 +63,12 @@ $(document).ready(function () {
     
     const serializedData = $(this).serialize();
 
+    //$(".error").hide();
+    $(".error").slideUp("slow")
+
     // allotment is 140 characters
     if (input.length > 140) {
-      alert('Tweet is too long!')
+      $(".error").slideDown("slow")
       return;
     }
 
@@ -71,6 +76,8 @@ $(document).ready(function () {
       alert('No tweet submitted!')
       return;
     }
+
+    
 
     $.post('/tweets/', serializedData)
       .then(() => {
@@ -93,8 +100,6 @@ $(document).ready(function () {
       error: error => console.log(error)
     })
   }
-
-  //loadTweets();
 
   $("article").hover(function () {
     $(this).toggleClass('highlightBox')
