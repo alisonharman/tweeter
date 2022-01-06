@@ -1,8 +1,8 @@
 
 #tweet-text {
-  border-bottom: 10px solid black;
   background-color: #f4f1ec;
-  border: none;
+  /*border-bottom: 10px solid black;
+  border: none; */
 }
 
 .top-tweet-form {
