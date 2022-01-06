@@ -5,10 +5,6 @@
  */
 $(document).ready(function () {
 
-  console.log($(document.body));
-
-  //$(() => { alert('Hello!'); });
-
   const createTweetElement = function (tweet) {
 
     // prevent XSS on the inputted tweet text
@@ -39,10 +35,8 @@ $(document).ready(function () {
           </div>
         </footer>
       </article>`;
-
-    // let $tweet = $(`<article class="tweet">Hello world</article>`);
+    // create jQuery object from markup amd return
     let $tweet = $(markup);
-    
     return $tweet;
   }
 
@@ -54,6 +48,25 @@ $(document).ready(function () {
       const $tweet = createTweetElement(tweet);
       $('#tweets-container').prepend($tweet);
     }
+
+    $(".tweet").hover(function () {
+      $(this).toggleClass('highlightBox')
+    });
+  
+    $(".fa-flag").hover(function () {
+      $(this).toggleClass('iconColor')
+    });
+  
+    $(".fa-heart").hover(function () {
+      //console.log($(this))
+      $(this).toggleClass('iconColor')
+    });
+  
+    $(".fa-retweet").hover(function () {
+      //console.log($(this))
+      $(this).toggleClass('iconColor')
+    });
+
   };
 
   const form = $('#new-tweet');
@@ -77,8 +90,6 @@ $(document).ready(function () {
       return;
     }
 
-    
-
     $.post('/tweets/', serializedData)
       .then(() => {
         loadTweets()
@@ -101,22 +112,9 @@ $(document).ready(function () {
     })
   }
 
-  $("article").hover(function () {
-    $(this).toggleClass('highlightBox')
-  });
+  $tweet = $(".tweet")
+  console.log('exists?', $tweet)
 
-  $(".fa-flag").hover(function () {
-    $(this).toggleClass('iconColor')
-  });
-
-  $(".fa-heart").hover(function () {
-    //console.log($(this))
-    $(this).toggleClass('iconColor')
-  });
-
-  $(".fa-retweet").hover(function () {
-    //console.log($(this))
-    $(this).toggleClass('iconColor')
-  });
+  
 
 });
