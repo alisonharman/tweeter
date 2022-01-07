@@ -19,7 +19,7 @@
   margin-left: 0.5em;
   margin-right: 0.5em;
   border-bottom: 2px solid black;
-  height: 2.0em;
+  height: 2.4em;
 }
 
 .footer {
@@ -34,4 +34,8 @@
 
 .iconColor {
   color: red;
+}
+
+#tweets-container {
+  margin-bottom: 1em;
 }
