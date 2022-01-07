@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -19,10 +20,14 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
-.container {
+main {
   color: #545149;
   width: 90%;
   display: flex;
@@ -32,6 +37,34 @@ body {
   margin-right: auto;
 }
 
+/*
+@media only screen and (min-width: 600px) {
+  header {
+    width: 45%;
+    background-color: #f4f1ec;
+    background-image: none;
+  }
+  #header-image {
+  display: block;
+  background-color: rgb(231, 156, 63);
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  text-align: center;
+  }
+
+  .everything-but-the-nav {
+    margin-top: 100px;
+  }
+
+  .container {
+    width: 55%;
+  }
+}
+
+
+/* Laptops / Desktops*/
+@media only screen and (min-width: 1024px) {
+  
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
