@@ -40,7 +40,7 @@ $(document).ready(function () {
     return $tweet;
   }
 
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -52,28 +52,27 @@ $(document).ready(function () {
     $(".tweet").hover(function () {
       $(this).toggleClass('highlightBox')
     });
-  
+
     $(".fa-flag").hover(function () {
       $(this).toggleClass('iconColor')
     });
-  
+
     $(".fa-heart").hover(function () {
-      //console.log($(this))
       $(this).toggleClass('iconColor')
     });
-  
+
     $(".fa-retweet").hover(function () {
-      //console.log($(this))
       $(this).toggleClass('iconColor')
     });
 
   };
 
   const form = $('#new-tweet');
-  form.on('submit', function(event) {
+  form.on('submit', function (event) {
     event.preventDefault();
+    // find the actual input that the user added
     const input = $('#tweet-text').first().val();
-    
+
     const serializedData = $(this).serialize();
 
     //$(".error").hide();
@@ -89,6 +88,9 @@ $(document).ready(function () {
       alert('No tweet submitted!')
       return;
     }
+    
+    // reset form so the previous input goes away
+    $(this)[0].reset();
 
     $.post('/tweets/', serializedData)
       .then(() => {
@@ -100,7 +102,7 @@ $(document).ready(function () {
 
   })
 
-  const loadTweets = function() {
+  const loadTweets = function () {
     $.ajax({
       method: "GET",
       dataType: "json",
@@ -112,9 +114,6 @@ $(document).ready(function () {
     })
   }
 
-  $tweet = $(".tweet")
-  console.log('exists?', $tweet)
-
-  
+  //$tweet = $(".tweet")
 
 });
