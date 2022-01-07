@@ -18,7 +18,7 @@ $(document).ready(function () {
     const markup = `<article class=tweet> 
       <header class="header">
           <div>
-          <img src=${tweet.user.avatars} height=40>
+          <img src=${tweet.user.avatars} class="avatar">
           <span> ${tweet.user.name} </span>
           </div>
           <output name="username"> ${tweet.user.handle} </output>
