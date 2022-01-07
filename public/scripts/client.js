@@ -75,17 +75,22 @@ $(document).ready(function () {
 
     const serializedData = $(this).serialize();
 
-    //$(".error").hide();
-    $(".error").slideUp("slow")
+    // remove error message if showing
+    $(".error").slideUp("slow");
 
     // allotment is 140 characters
     if (input.length > 140) {
-      $(".error").slideDown("slow")
+      $error = $(".error");
+      $error[0].textContent = "Too long! Plz rspct our arbitrary limit of 140 chars. #kthxbye.";
+      $error.slideDown("slow");
       return;
     }
 
     if (input === "") {
-      alert('No tweet submitted!')
+      $error = $(".error");
+      $error[0].textContent = "Too short! Plz write tweet. kthxbye.";
+      console.log($error);
+      $error.slideDown("slow");
       return;
     }
     
