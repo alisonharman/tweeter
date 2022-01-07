@@ -1,14 +1,14 @@
 .tweet {
   width: 100%;
   border: 5px solid;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-top: 10px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 1em;
 }
 
 .header {
   background-color: #f4f1ec;
-  height: 50px;
+  height: 2.5em;
   background-image: none;
   display: flex;
   flex-direction: row;
@@ -19,7 +19,7 @@
   margin-left: 0.5em;
   margin-right: 0.5em;
   border-bottom: 2px solid black;
-  height: 50px;
+  height: 2.0em;
 }
 
 .footer {
