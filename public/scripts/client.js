@@ -16,92 +16,71 @@ $(document).ready(function () {
     const safeHTML = `${escape(`${tweet.content.text}`)}`;
 
     const markup = `<article class=tweet> 
-      <header class="header">
-          <div>
-          <img src=${tweet.user.avatars} class="avatar">
-          <span> ${tweet.user.name} </span>
+        <header class="tweet-header">
+          <div class="tweet-header-user">
+            <img src=${tweet.user.avatars} alt="tweet avatar">
+            <span>${tweet.user.name}</span>
           </div>
-          <output name="username"> ${tweet.user.handle} </output>
+          <p class="tweet-header-handle">${tweet.user.handle}</p>
         </header>
-        <p class="tweet-text">
+        <p class="tweet-content">
           ${safeHTML}
         </p>
-        <footer class="footer">
-          <span> ${timeago.format(tweet.created_at)} </span> 
-          <div>
+        <footer class="tweet-footer">
+          <span class="tweet-footer-timestamp">${timeago.format(tweet.created_at)}</span> 
+          <div class="tweet-footer-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
             <i class="fa-solid fa-heart"></i>
           </div>
         </footer>
       </article>`;
-    // create jQuery object from markup amd return
-    let $tweet = $(markup);
-    return $tweet;
+   
+    return markup;
   }
 
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet);
+    for (const tweetObject of tweets) {
+      const tweet = createTweetElement(tweetObject);
+      $('#tweets-container').prepend(tweet);
     }
-
-    $(".tweet").hover(function () {
-      $(this).toggleClass('highlightBox')
-    });
-
-    $(".fa-flag").hover(function () {
-      $(this).toggleClass('iconColor')
-    });
-
-    $(".fa-heart").hover(function () {
-      $(this).toggleClass('iconColor')
-    });
-
-    $(".fa-retweet").hover(function () {
-      $(this).toggleClass('iconColor')
-    });
-
   };
 
-  const form = $('#new-tweet');
+  const form = $('#new-tweet-form');
   form.on('submit', function (event) {
     event.preventDefault();
     // find the actual input that the user added
-    const input = $('#tweet-text').first().val();
+    const input = $('#new-tweet-text').val();
+    const error = $("#new-tweet-error");
 
-    const serializedData = $(this).serialize();
-
-    // remove error message if showing
-    $(".error").slideUp("slow");
-
-    // allotment is 140 characters
-    if (input.length > 140) {
-      $error = $(".error");
-      $error[0].textContent = "Too long! Plz rspct our arbitrary limit of 140 chars. #kthxbye.";
-      $error.slideDown("slow");
+    if (input === "") {
+      error[0].textContent = "Too short! Plz write tweet. #kthxbye.";
+      error.slideDown("slow");
       return;
     }
 
-    if (input === "") {
-      $error = $(".error");
-      $error[0].textContent = "Too short! Plz write tweet. kthxbye.";
-      console.log($error);
-      $error.slideDown("slow");
+    if (input.length > 140) {
+      error[0].textContent = "Too long! Plz rspct our arbitrary limit of 140 chars. #kthxbye.";
+      error.slideDown("slow");
       return;
     }
     
-    // reset form so the previous input goes away
-    $(this)[0].reset();
+    const serializedData = $(this).serialize();
 
-    $.post('/tweets/', serializedData)
-      .then(() => {
-        loadTweets()
+    $.post('/tweets', serializedData)
+      .then(function () {
+        // remove error message if showing
+        $("#new-tweet-error").slideUp("slow");
+        // reset form so the previous input goes away
+        $("#new-tweet-text").val("");
+        $("#new-tweet-counter").text(140);
+        $("#tweets-container").empty(); 
+        loadTweets();
       })
-      .catch(err => {
+      .catch(function(err) {
         console.log(err.message)
       })
 
@@ -112,13 +91,12 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       url: "/tweets",
-      success: tweets => {
-        renderTweets(tweets)
-      },
+      success: tweets => renderTweets(tweets),
       error: error => console.log(error)
     })
   }
-
-  //$tweet = $(".tweet")
+    
+// so tweets will be retrieved when user first goes to page
+    loadTweets();
 
 });
