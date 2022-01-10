@@ -5,6 +5,7 @@ Tweeter is a simple, single-page AJAX-based Twitter clone, which uses jQuery, HT
 ## Screenshots
 
 !["Screenshot of main page on desktop screen"](https://github.com/alisonharman/tweeter/blob/master/docs/desktop-main-page.png)
+!["Screenshot with error message, mobile version"](https://github.com/alisonharman/tweeter/blob/master/docs/tweet-text-too-long-error-message.png)
 
 ## Getting Started
 
