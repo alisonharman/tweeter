@@ -30,11 +30,8 @@ body {
 main {
   color: #545149;
   width: 90%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 1em 0;
 }
 
 /*
