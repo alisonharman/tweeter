@@ -1,7 +1,4 @@
-
-
-nav {
-  font-family: 'Bungee', cursive;
+.navbar-top {
   font-size: 2.5rem;
   height: 120px;
   width: 100%;
@@ -12,18 +9,22 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9;
+  z-index: 10;
   position: fixed;
+  top: 0;
 }
 
-.right-nav-item {
+.navbar-top-brand {
+  font-family: 'Bungee', cursive;
+}
+
+.navbar-top-menu {
   display: flex;
   flex-direction: column;
-  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5rem;
   align-items: center;
 }
 
-.fa-angles-down {
+.navbar-top-menu i {
   color: red;
 }
