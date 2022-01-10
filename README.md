@@ -4,7 +4,7 @@ Tweeter is a simple, single-page AJAX-based Twitter clone, which uses jQuery, HT
 
 ## Screenshots
 
-!["Screenshot of main page on desktop screen"](https://github.com/alisonharman/tweeter/docs/desktop-main-page.png)
+!["Screenshot of main page on desktop screen"](https://github.com/alisonharman/tweeter/blob/master/docs/desktop-main-page.png)
 
 ## Getting Started
 
