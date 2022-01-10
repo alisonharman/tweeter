@@ -3,12 +3,12 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function () {
+$(document).ready(function() {
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function(tweet) {
 
     // prevent XSS on the inputted tweet text
-    const escape = function (str) {
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -37,9 +37,9 @@ $(document).ready(function () {
       </article>`;
    
     return markup;
-  }
+  };
 
-  const renderTweets = function (tweets) {
+  const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -50,7 +50,7 @@ $(document).ready(function () {
   };
 
   const form = $('#new-tweet-form');
-  form.on('submit', function (event) {
+  form.on('submit', function(event) {
     event.preventDefault();
     // find the actual input that the user added
     const input = $('#new-tweet-text').val();
@@ -71,32 +71,32 @@ $(document).ready(function () {
     const serializedData = $(this).serialize();
 
     $.post('/tweets', serializedData)
-      .then(function () {
+      .then(function() {
         // remove error message if showing
         $("#new-tweet-error").slideUp("slow");
         // reset form so the previous input goes away
         $("#new-tweet-text").val("");
         $("#new-tweet-counter").text(140);
-        $("#tweets-container").empty(); 
+        $("#tweets-container").empty();
         loadTweets();
       })
       .catch(function(err) {
-        console.log(err.message)
-      })
+        console.log(err.message);
+      });
 
-  })
+  });
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax({
       method: "GET",
       dataType: "json",
       url: "/tweets",
       success: tweets => renderTweets(tweets),
       error: error => console.log(error)
-    })
-  }
+    });
+  };
     
-// so tweets will be retrieved when user first goes to page
-    loadTweets();
+  // so tweets will be retrieved when user first goes to page
+  loadTweets();
 
 });
