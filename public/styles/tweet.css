@@ -24,6 +24,7 @@
 .tweet-content {
   padding: 0.5em 0;
   border-bottom: 2px solid black;
+  overflow-wrap: break-word;
 }
 
 .tweet-footer {
