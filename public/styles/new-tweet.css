@@ -1,6 +1,6 @@
 .new-tweet {
   margin-top: 1em;
-  width: 100%
+  width: 100%;
 }
 
 .new-tweet-error {
@@ -36,3 +36,8 @@
 .max-count-reached {
   color: red;
 }
+
+.hidden {
+  display: none;
+}
+
