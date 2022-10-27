@@ -1,0 +1,32 @@
+$secondary-color: #4056A1;
+
+.navbar-top {
+  font-size: 2.5rem;
+  height: 120px;
+  width: 100%;
+  background-color: $secondary-color;
+  color: #FFFF;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-top-brand {
+  font-family: 'Bungee', cursive;
+}
+
+.navbar-top-menu {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.navbar-top-menu i {
+  color: red;
+}

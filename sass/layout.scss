@@ -1,0 +1,54 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+main {
+  color: #545149;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+/* Laptops / Desktops*/
+@media only screen and (min-width: 1024px) {
+
+  body {
+    margin-top: 200px;
+  }
+
+  #header-profile {
+    width: 40%;
+    margin: 2em auto;
+    padding-top: 2em;
+    max-height: 425px;
+    max-width: 425px;
+    justify-content: center;
+  }
+
+  main {
+    width: 55%;
+    margin: 0 1.5em 1em 0;
+  }
+
+}
+
