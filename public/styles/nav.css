@@ -3,7 +3,7 @@
   height: 120px;
   width: 100%;
   background-color: #4056A1;
-  color: #FFFF;
+  color: white;
   padding-right: 1.5em;
   padding-left: 1.5em;
   display: flex;
@@ -15,7 +15,7 @@
 }
 
 .navbar-top-brand {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 .navbar-top-menu {
