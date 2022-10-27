@@ -1,10 +1,10 @@
-$secondary-color: #4056A1;
+@use "./utilities/variables" as *;
 
 .navbar-top {
   font-size: 2.5rem;
   height: 120px;
   width: 100%;
-  background-color: $secondary-color;
+  background-color: $color-tertiary;
   color: #FFFF;
   padding-right: 1.5em;
   padding-left: 1.5em;
