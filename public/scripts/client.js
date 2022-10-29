@@ -100,6 +100,7 @@ $(document).ready(function () {
   // so tweets will be retrieved when user first goes to page
   loadTweets();
 
+// toggle new tweet from nav bar arrows
   const $newTweet = $("section.new-tweet");
   const $elem = $("i");
   $elem.on("click", () => {
@@ -107,4 +108,17 @@ $(document).ready(function () {
     $newTweet.toggleClass("hidden");
     $("#new-tweet-text").focus();
   });
+
+  // reveal second toggle (on bottom of screen on scroll)
+  const $secondToggle = $('.second-toggle')
+  
+  $(document).on('scroll', () => {
+    $secondToggle.removeClass('hidden')
+  })
+  
+  $('#new-tweet-text').on('focus', () => {
+    $secondToggle.addClass('hidden')
+  })
+
+
 });
