@@ -102,10 +102,10 @@ $(document).ready(function () {
 
 // toggle new tweet from nav bar arrows
   const $newTweet = $("section.new-tweet");
-  const $elem = $("i");
+  const $elem = $('i');
   $elem.on("click", () => {
-    $newTweet.slideToggle("fast");
-    $newTweet.toggleClass("hidden");
+    $newTweet.slideToggle('fast');
+    $newTweet.toggleClass('hidden');
     $("#new-tweet-text").focus();
   });
 
@@ -116,8 +116,9 @@ $(document).ready(function () {
     $secondToggle.removeClass('hidden')
   })
   
-  $('#new-tweet-text').on('focus', () => {
-    $secondToggle.addClass('hidden')
+  $('#tweet-text').on('focus', () => {
+    $secondToggle.addClass('hidden');
+    $newTweet.toggleClass('hidden');
   })
 
 
