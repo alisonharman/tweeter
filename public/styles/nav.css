@@ -41,6 +41,12 @@
   z-index: 10;
 }
 
+.fa-angle-double-down:hover {
+  transform: scale(1.5);
+  color: rgb(255, 98, 98);
+  transition: 0.3s;
+}
+
 .second-toggle {
   position: fixed;
   top: 90vh;
